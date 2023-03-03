@@ -1,0 +1,12 @@
+{
+  "name": "boot-betto",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "telegraf": "^3.38.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
