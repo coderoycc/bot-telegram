@@ -1,17 +1,17 @@
-welcome =
-  Hey {$name}!
+Welcome =
+  Hola {$name}!
 
-  Es ist relativ einfach Übersetzungen für deinen Bot zu schreiben, sobald du verstanden hast, wie man fluent Dateien schreibt.
+  Escribir traducciones para un bot es fácil siempre que se sepan escribir archivos fluidos.
 
-help = This is some example help text.
+help = Este es un ejemplo de ayuda.
 
-menu-back = zurück…
-menu-main = Hauptmenü…
-menu-settings = Einstellungen
-menu-language = Sprache
+menu-back = Atrás
+menu-main = Menu Principal
+menu-settings = Configuraciones
+menu-language = Lenguaje
 
 settings-body =
-  Hier kannst du Dinge zu diesem Bot einstellen.
+  Siéntase libre de establecer la configuración que prefiera.
 
-  Oder wenn du der Entwickler dieses Bots bist: Dinge hinzufügen damit Nutzer diese einstellen können.
-settings-language = Wähle deine Sprache
+  De desarrollador: siéntase libre de agregar las cosas que desea que los usuarios ajusten.
+settings-language = Seleccione su lenguaje

@@ -36,7 +36,7 @@ bot.command('help', async ctx => ctx.reply(ctx.t('help')));
 
 bot.command('html', async ctx => {
 	let text = '';
-	text += format.bold('Some');
+	text += format.bold('Mensaje');
 	text += ' ';
 	text += format.spoiler('Este es un texto de tipo Spoiler de Texto');
 	await ctx.reply(text, {parse_mode: format.parse_mode});
