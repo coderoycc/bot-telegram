@@ -7,7 +7,6 @@ import {generateUpdateMiddleware} from 'telegraf-middleware-console-time';
 import {html as format} from 'telegram-format';
 import {MenuMiddleware} from 'grammy-inline-menu';
 
-import {danceWithFairies, fightDragons} from '../magic.js';
 import {i18n} from '../translation.js';
 import {menu} from './menu/index.js';
 import type {MyContext, Session} from './my-context.js';
@@ -34,23 +33,12 @@ if (process.env['NODE_ENV'] !== 'production') {
 
 bot.command('help', async ctx => ctx.reply(ctx.t('help')));
 
-bot.command('magic', async ctx => {
-	const combatResult = fightDragons();
-	const fairyThoughts = danceWithFairies();
-
-	let text = '';
-	text += combatResult;
-	text += '\n\n';
-	text += fairyThoughts;
-
-	return ctx.reply(text);
-});
 
 bot.command('html', async ctx => {
 	let text = '';
 	text += format.bold('Some');
 	text += ' ';
-	text += format.spoiler('HTML');
+	text += format.spoiler('Este es un texto de tipo Spoiler de Texto');
 	await ctx.reply(text, {parse_mode: format.parse_mode});
 });
 
@@ -58,6 +46,13 @@ const menuMiddleware = new MenuMiddleware('/', menu);
 bot.command('start', async ctx => menuMiddleware.replyToContext(ctx));
 bot.command('settings', async ctx => menuMiddleware.replyToContext(ctx, '/settings/'));
 bot.use(menuMiddleware.middleware());
+
+
+bot.on('message', (ctx) => {
+	const txt = ctx.message.text?.toUpperCase();
+	ctx.reply(`Mensaje Recibido ${txt}`);
+})
+
 
 // False positive as bot is not a promise
 // eslint-disable-next-line unicorn/prefer-top-level-await
@@ -69,7 +64,6 @@ export async function start(): Promise<void> {
 	// The commands you set here will be shown as /commands like /start or /magic in your telegram client.
 	await bot.api.setMyCommands([
 		{command: 'start', description: 'open the menu'},
-		{command: 'magic', description: 'do magic'},
 		{command: 'html', description: 'some html _mode example'},
 		{command: 'help', description: 'show the help'},
 		{command: 'settings', description: 'open the settings'},
